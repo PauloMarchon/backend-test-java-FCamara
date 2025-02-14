@@ -1,3 +1,7 @@
 spring:
   application:
     name: parking
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fcamara
+    username: admin
+    password: admin
