@@ -49,8 +49,8 @@ public class VeiculoRepositoryTest {
     }
 
     @Test
-    @DisplayName("")
-    void deveRetornarVeiculo_QuandoPlacaEstiverCadastrada() {
+    @DisplayName("Deve retornar veiculo quando placa for encontrada")
+    void findByPlaca_DeveRetornarVeiculo_QuandoPlacaEncontrada() {
         Placa placa = Placa.from("ABC1234");
         Veiculo veiculo = new Veiculo("marca", "modelo", "cor", placa, TipoVeiculo.CARRO);
         entityManager.persist(veiculo);
@@ -61,8 +61,8 @@ public class VeiculoRepositoryTest {
     }
 
     @Test
-    @DisplayName("")
-    void deveRetornarVeiculoVazio_QuandoPlacaNaoEstiverCadastrada() {
+    @DisplayName("Deve retornar veiculo vazio quando placa nao for encontrada")
+    void findByPlaca_DeveRetornarVazio_QuandoPlacaNaoEncontrada() {
         Placa placa = Placa.from("ABC1234");
         Veiculo veiculo = new Veiculo("marca", "modelo", "cor", placa, TipoVeiculo.CARRO);
         entityManager.persist(veiculo);
@@ -73,8 +73,8 @@ public class VeiculoRepositoryTest {
     }
 
     @Test
-    @DisplayName("")
-    void deveVerificarExistenciaDaPlacaDoVeiculo_QuandoPlacaEstiverCadastrada() {
+    @DisplayName("Deve retornar true/verdadeiro quando a placa for encontrada")
+    void existsByPlaca_DeveRetornarTrue_QuandoPlacaEncontrada() {
         Placa placa = Placa.from("ABC1234");
         Veiculo veiculo = new Veiculo("marca", "modelo", "cor", placa, TipoVeiculo.CARRO);
         veiculoRepository.save(veiculo);
@@ -85,8 +85,8 @@ public class VeiculoRepositoryTest {
     }
 
     @Test
-    @DisplayName("")
-    void deveVerificarExistenciaDaPlacaDoVeiculo_QuandoPlacaNaoEstiverCadastrada() {
+    @DisplayName("Deve retornar false/falso quando a placa nao for encontrada")
+    void existsByPlaca_DeveRetornarFalse_QuandoPlacaNaoEncontrada() {
         Placa placa = Placa.from("ABC1234");
         Veiculo veiculo = new Veiculo(
                 "marca",
@@ -101,5 +101,4 @@ public class VeiculoRepositoryTest {
 
         assertThat(atual).isFalse();
     }
-
 }

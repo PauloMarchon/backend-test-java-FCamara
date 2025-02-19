@@ -25,6 +25,15 @@ public class Veiculo {
     @Enumerated(EnumType.STRING)
     private TipoVeiculo tipoVeiculo;
 
+    public Veiculo(Integer id, String marca, String modelo, String cor, Placa placa, TipoVeiculo tipoVeiculo) {
+        this.id = id;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.cor = cor;
+        this.placa = placa;
+        this.tipoVeiculo = tipoVeiculo;
+    }
+
     public Veiculo(
             String marca,
             String modelo,
